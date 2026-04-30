@@ -1,0 +1,9 @@
+{% extends 'expenses/base.html' %}
+
+{% block content %}
+<form method="post" action="{% url 'users:register' %}">
+    {% csrf_token %}
+    {{form.as_div}}
+</form>
+<button class="button is-primary mt-3" type="submit">Sign Up</button>
+{% endblock content %}
