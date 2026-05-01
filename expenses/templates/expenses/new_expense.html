@@ -1,0 +1,12 @@
+{% extends 'expenses/base.html' %}
+
+{% block content %}
+    <h2 class="is-size-2">Add an Expense</h2>
+    <form action="{% url 'expenses:new_expense' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_div }}
+
+        <button class="button is-primary mt-3"type="submit">Add expense</button>
+    </form>
+
+    {% endblock content%}

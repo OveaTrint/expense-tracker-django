@@ -4,15 +4,23 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('expenses', '0001_initial'),
+        ("expenses", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='expenses',
-            name='category',
-            field=models.CharField(choices=[('food', 'Food'), ('beauty', 'Beauty'), ('communication', 'Communication'), ('enjoyment', 'Enjoyment'), ('misc', 'Miscellaneous'), ('transportation', 'Transportation')]),
+            model_name="expenses",
+            name="category",
+            field=models.CharField(
+                choices=[
+                    ("food", "Food"),
+                    ("beauty", "Beauty"),
+                    ("communication", "Communication"),
+                    ("enjoyment", "Enjoyment"),
+                    ("misc", "Miscellaneous"),
+                    ("transportation", "Transportation"),
+                ]
+            ),
         ),
     ]

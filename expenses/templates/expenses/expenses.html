@@ -9,17 +9,16 @@
     {% for expense in expenses %}
     <div class="column is-one-third">
         <div class="card">
-            <header class="card-header">
-                <span class="card-header-title">{{expense.owner}}</span>
-            </header>
             <div class="card-content">
-                <div class="content">
-                    {{expense.description}}
+                <div class="content is-size-1">
+                    ${{ expense.amount }}
                 </div>
+                <div class="content is-size-3">{{ expense.description|truncatechars:15 }}</div>
             </div>
-            <footer class="card-footer">
-                <span class="card-footer-item">{{expense.updated_at|date:"Y-m-d"}}</span>
-            </footer>
+            <div class="content">
+                <span class="card-footer-item is-size-7 ">Created at: {{expense.updated_at|date:"Y-m-d"}} | Updated at: {{expense.updated_at|date:"Y-m-d"}}</span>
+
+            </div>
         </div>
     </div>
     {% empty %}
@@ -29,5 +28,8 @@
         </div>
     </div>
     {% endfor %}
+</div>
+<div class="bottom-right-element is-pulled-right">
+    <a class= "button is-primary" href="{% url 'expenses:new_expense' %}">Add an Expense</a>
 </div>
 {% endblock content %}
