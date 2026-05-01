@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-info" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="/">
                 <strong>2099 Expense Tracker</strong>
@@ -23,12 +23,18 @@
                 <span class="navbar-item">The expense tracker of the future</span>
             </div>
             <div class="navbar-end">
-                {% if user.authenticated %}
-                <span class="navbar-item">Hello, {{user.username}}</span>
-                {% else %}
-                <a class="navbar-item" href="{% url 'users:login' %}">Sign in</a>
-                <a class="navbar-item" href="{% url 'users:register' %}">Sign Up</a>
-                {% endif %}
+                <div class="navbar-item">
+                    {% if user.is_authenticated %}
+                        <form action="{% url 'users:logout' %}" method="post">
+                            {% csrf_token %}
+                            <button class="button is-dark" type="submit">Sign Out</button>
+                        </form>
+                    <span>Hello, {{user.username}}</span>
+                    {% else %}
+                    <a class="button" href="{% url 'users:login' %}">Sign In</a>
+                    <a class="button is-dark" href="{% url 'users:register' %}">Sign Up</a>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </nav>

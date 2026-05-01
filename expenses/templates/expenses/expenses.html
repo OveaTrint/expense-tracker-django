@@ -5,15 +5,12 @@
 <h1 class="title is-3">Your Expenses</h1>
 <h2 class="subtitle is-6 has-text-grey">A log of every dollar that fled your wallet</h2>
 
-{# columns is a flex grid. is-multiline lets cards wrap to a new row when there's no space. #}
-{# Each .column inside gets a width modifier — is-one-third = 33% on desktop, full-width on mobile. #}
 <div class="columns is-multiline">
-    {% for expense in expenses %
+    {% for expense in expenses %}
     <div class="column is-one-third">
-        {# Bulma 'card' expects this nested structure: card-content > content #}
         <div class="card">
             <header class="card-header">
-                <p class="card-header-title">{{expense.description}}</p>
+                <span class="card-header-title">{{expense.owner}}</span>
             </header>
             <div class="card-content">
                 <div class="content">
@@ -26,7 +23,6 @@
         </div>
     </div>
     {% empty %}
-    {# Empty-state uses Bulma's 'notification' component for a friendly colored panel. #}
     <div class="column is-full">
         <div class="notification is-warning is-light">
             No expenses added yet…

@@ -132,3 +132,4 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_REDIRECT_URL = "expenses:base"
+LOGOUT_REDIRECT_URL = "expenses:base"
