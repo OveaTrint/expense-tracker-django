@@ -27,4 +27,4 @@ class Expenses(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.description[:10]}: {self.amount}"
+        return self.description[:10]

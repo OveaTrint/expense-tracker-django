@@ -29,8 +29,15 @@ def new_expense(request):
             new_expense.save()
 
             return redirect("expenses:expenses")
-
     else:
         form = ExpensesForm()
 
     return render(request, "expenses/new_expense.html", {"form": form})
+
+
+@login_required
+def expense(request, expense_id):
+    expense = Expenses.objects.get(id=expense_id)
+    context = {"expense": expense}
+
+    return render(request, template_name="expenses/expense.html", context=context)
