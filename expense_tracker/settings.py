@@ -36,7 +36,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     "expenses",
-    "users",
+    "accounts",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -131,5 +131,5 @@ STATICFILES_DIRS = [
     BASE_DIR / "img",
 ]
 
-LOGIN_REDIRECT_URL = "expenses:base"
-LOGOUT_REDIRECT_URL = "expenses:base"
+LOGIN_REDIRECT_URL = "expenses:index"
+LOGOUT_REDIRECT_URL = "expenses:index"

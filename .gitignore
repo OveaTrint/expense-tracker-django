@@ -13,3 +13,4 @@ wheels/
 .zed
 
 .env
+pyrightconfig.json

@@ -29,14 +29,14 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     {% if user.is_authenticated %}
-                        <form action="{% url 'users:logout' %}" method="post">
+                        <form action="{% url 'accounts:logout' %}" method="post">
                             {% csrf_token %}
                             <button class="button is-dark" type="submit">Sign Out</button>
                         </form>
                     <span>Hello, {{user.username}}</span>
                     {% else %}
-                    <a class="button" href="{% url 'users:login' %}">Sign In</a>
-                    <a class="button is-dark" href="{% url 'users:register' %}">Sign Up</a>
+                    <a class="button" href="{% url 'accounts:login' %}">Sign In</a>
+                    <a class="button is-dark" href="{% url 'accounts:register' %}">Sign Up</a>
                     {% endif %}
                 </div>
             </div>

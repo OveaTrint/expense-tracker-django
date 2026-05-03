@@ -1,0 +1,6 @@
+{% extends 'expenses/base.html' %}
+
+{% block content %}
+<p class="is-size2">Expense successfully deleted</p>
+<a href="{% url 'expenses:expenses' %}" class="button is-info">Ok</a>
+{% endblock content %}

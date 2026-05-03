@@ -9,3 +9,8 @@ dependencies = [
     "psycopg[binary]>=3.3.3",
     "python-dotenv>=1.2.2",
 ]
+
+[dependency-groups]
+dev = [
+    "django-stubs[compatible-mypy]>=6.0.3",
+]

@@ -1,0 +1,13 @@
+{% extends 'expenses/base.html' %}
+
+{% block content %}
+<h1 class="">The expense tracker of the future</h1>
+
+{% if user.is_authenticated %}
+<a class="button is-primary" href="{% url 'expenses:new_expense' %}">Add an expense</a>
+
+{% else %}
+<p>Sign up to kickstart your journey to financial freedom</p>
+
+{% endif %}
+{% endblock content %}

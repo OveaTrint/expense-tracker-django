@@ -1,14 +1,15 @@
 {% extends 'expenses/base.html' %}
 
 {% block content %}
-<p class="is-size-1">Amount : ${{ expense.amount }}</p>
+<p class="is-size-1">Amount : ₦{{ expense.amount }}</p>
 <p class="is-size-4"> Description: {{ expense.description }}</p>
+<p class="is-size-4"> Category: {{ expense.category }}</p>
 <br>
-<p class="is-size-5">Created at :{{ expense.created_at|date:"l, F, j, Y H:i:s"}}</p>
-<p class="is-size-5">Updated at: {{ expense.updated_at|date:"l, F, j, Y H:i:s"}}</p>
+<p class="is-size-5">Created at :{{ expense.created_at|date:"l j F, Y H:i:s"}}</p>
+<p class="is-size-5">Updated at: {{ expense.updated_at|date:"l j F, Y H:i:s"}}</p>
 
 <div class="is-flex is-align-items-start">
-<a class="button is-info m-3" href="{% url 'expenses:expenses' %}">Update expense</a>
-<a class="button is-danger m-3" href="{% url 'expenses:delete_expense' %}">Delete expense</a>
+    <a class="button is-danger m-3" href="{% url 'expenses:delete' expense.id %}">Delete expense</a>
+    <a class="button is-info m-3" href="{% url 'expenses:update' expense.id %}">Update expense</a>
 </div>
-{% endblock content%}
+{% endblock content %}

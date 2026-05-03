@@ -6,14 +6,18 @@ from .models import Expenses
 
 
 # Create your views here.
-def base(request):
-    return render(request, "expenses/base.html")
+def index(request):
+    return render(request, "expenses/index.html")
 
 
 @login_required
 def expenses(request):
     expenses = Expenses.objects.filter(owner=request.user)
-    context = {"expenses": expenses}
+    total_expense = 0
+    for expense in expenses:
+        total_expense += expense.amount
+
+    context = {"expenses": expenses, "total_expense": total_expense}
 
     return render(request, "expenses/expenses.html", context=context)
 
@@ -41,3 +45,27 @@ def expense(request, expense_id):
     context = {"expense": expense}
 
     return render(request, template_name="expenses/expense.html", context=context)
+
+
+@login_required
+def delete_expense(request, expense_id):
+    expense = Expenses.objects.get(id=expense_id)
+
+    expense.delete()
+
+    return render(request, template_name="expenses/delete_expense.html")
+
+
+@login_required
+def update_expense(request, expense_id):
+    context = {}
+    expense = Expenses.objects.get(id=expense_id)
+
+    form = ExpensesForm(request.POST or None, instance=expense)
+
+    if form.is_valid():
+        form.save()
+        return redirect("expenses:expenses")
+
+    context["form"] = form
+    return render(request, "expenses/update_expense.html", context)

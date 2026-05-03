@@ -3,7 +3,7 @@ from django.urls import include, path
 
 from .views import register
 
-app_name = "users"
+app_name = "accounts"
 
 urlpatterns = [
     path("", include(auth_urls)),
