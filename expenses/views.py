@@ -62,7 +62,6 @@ def update_expense(request, expense_id):
     expense = Expenses.objects.get(id=expense_id)
 
     form = ExpensesForm(request.POST or None, instance=expense)
-
     if form.is_valid():
         form.save()
         return redirect("expenses:expenses")

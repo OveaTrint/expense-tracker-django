@@ -11,11 +11,10 @@ def register(request):
         form = UserCreationForm()
     else:
         form = UserCreationForm(data=request.POST)
-        print(request.POST)
         if form.is_valid():
             new_user = form.save()
             login(request, new_user)
-            return redirect("expenses:base")
+            return redirect("expenses:index")
 
     context = {"form": form}
     return render(request, "registration/register.html", context=context)
