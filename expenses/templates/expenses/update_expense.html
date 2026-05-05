@@ -1,7 +1,7 @@
 {% extends 'expenses/base.html' %}
 
 {% block content %}
-<h2 class="is-size-2">Update Expense</h2>
+<h2 class="title">Update Expense</h2>
 <form method="post">
     {% csrf_token %}
     {{ form.as_div }}
