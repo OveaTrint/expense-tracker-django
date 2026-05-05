@@ -21,4 +21,5 @@ Run the django server
 ```bash
 python manage.py runserver
 ```
-Visit http://127.0.0.1:8000/ to see the
+Visit http://127.0.0.1:8000/ to see the project
+
