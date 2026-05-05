@@ -17,8 +17,10 @@ Install dependencies via uv
 uv sync
 ```
 
-Run the django server
+Make migrations and run the django server
 ```bash
+python manage.py makemigrations
+python manage.py migrate
 python manage.py runserver
 ```
 Visit http://127.0.0.1:8000/ to see the project
